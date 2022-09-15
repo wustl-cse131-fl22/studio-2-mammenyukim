@@ -13,30 +13,37 @@ public class Ruin {
 		double winChance = scan.nextDouble();
 		System.out.println("Enter the win limit: ");
 		int winLimit = scan.nextInt();
-		int totalSimulations = 0;
+		System.out.println("Enter the number of total Simulations: ");
+		int totalSimulations = scan.nextInt();
+		int countSimulations = 0;
+		boolean result;
+		
 		int numPlays = 0;
 		
-		while (startAmount < winLimit && startAmount > 0)
+		while (countSimulations < totalSimulations)
 		{
-			if (Math.random() < winChance)
+			while (startAmount < winLimit && startAmount > 0)
 			{
-				startAmount++;
-				numPlays ++;
-			}
-			else 
-			{
-				startAmount--;
-				numPlays ++;
-			}
-			System.out.println("Simulation: " + totalSimulations);
-			totalSimulations ++;
+				if (Math.random() < winChance)
+				{
+					startAmount++;
+					numPlays ++;
+				}
+				else 
+				{
+					startAmount--;
+					numPlays ++;
+				}
+			
+			System.out.println("Simulation " + countSimulations + ": " + num);
+			countSimulations ++;
 		}
 
+		
 		if (startAmount == 0)
 			System.out.println("Ruin");
 		if (startAmount == winLimit)
 			System.out.println("Success");
-		
 		
 		
 	}
